@@ -1,4 +1,4 @@
-package utils.stack;
+package util;
 
 public class Element<T>{
     private T value;

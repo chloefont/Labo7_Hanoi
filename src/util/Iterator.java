@@ -1,4 +1,4 @@
-package utils.stack;
+package util;
 
 public class Iterator<T> {
     Element<T> root = null;

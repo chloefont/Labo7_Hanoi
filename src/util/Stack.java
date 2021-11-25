@@ -1,4 +1,4 @@
-package utils.stack;
+package util;
 
 import java.lang.reflect.Array;
 
@@ -36,7 +36,7 @@ public class Stack<T> {
             }
             result += "]";
         }else{
-            result = "empty";
+            result = "[ ]";
         }
 
         return result;
@@ -53,6 +53,10 @@ public class Stack<T> {
             }
         }
         return array;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public Iterator<T> getIterator() {
