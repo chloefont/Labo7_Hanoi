@@ -1,3 +1,5 @@
+package utils.stack;
+
 public class Iterator<T> {
     Element<T> root = null;
 

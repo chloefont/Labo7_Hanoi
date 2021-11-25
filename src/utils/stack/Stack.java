@@ -1,3 +1,5 @@
+package utils.stack;
+
 import java.lang.reflect.Array;
 
 public class Stack<T> {
@@ -26,12 +28,13 @@ public class Stack<T> {
     public String toString() {
         String result = "";
         if (root != null) {
-            result += root.getValue() + " ";
+            result += "[ <" + root.getValue() + "> ";
             Element<T> element = root;
             while (element.getNext() != null) {
                 element = element.getNext();
-                result += element.getValue() + " ";
+                result += "<" + element.getValue() + "> ";
             }
+            result += "]";
         }else{
             result = "empty";
         }
@@ -39,8 +42,9 @@ public class Stack<T> {
         return result;
     }
 
-    public Object[] toArray() {
-        Object[] array = new Object[size];
+    public T[] toArray(Class<T>dataType) {
+        // source: https://www.delftstack.com/fr/howto/java/generic-array-in-java/
+        T[] array = (T[]) Array.newInstance(dataType, size);;
         if (root != null) {
             Element<T> element = root;
             for (int i = 0; i < size; i++) {
