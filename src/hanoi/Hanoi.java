@@ -1,27 +1,45 @@
+package hanoi;
+
 import util.Stack;
+
+import java.util.Arrays;
+
 // source: https://www.sanfoundry.com/java-program-implement-solve-tower-of-hanoi-using-stacks/
 public class Hanoi {
-    private Stack<Integer> tower1;
-    private Stack<Integer> tower2;
-    private Stack<Integer> tower3;
+    private final Stack<Integer> tower1;
+    private final Stack<Integer> tower2;
+    private final Stack<Integer> tower3;
+    private final HanoiDisplayer displayer;
+    private boolean isFinished = false;
 
-    int turn = 0;
+    private int turn = 0;
 
-    public Hanoi(int numberDisk){
+    public Hanoi(int numberDisk, HanoiDisplayer displayer){
         tower1 = new Stack<>();
         tower2 = new Stack<>();
         tower3 = new Stack<>();
+        this.displayer = displayer;
 
         for(int i = numberDisk; i > 0; i--){
             tower1.push(i);
         }
     }
 
+    public Hanoi(int numberDisk){
+        this(numberDisk, new HanoiDisplayer());
+    }
 
-    public void resolve(){
-        System.out.println("-- Turn: " + turn++);
-        System.out.println(this);
+    public int[][] status(){
+        return new int[][]{Arrays.stream(tower1.toArray(Integer.class)).mapToInt(i->i).toArray(),
+                Arrays.stream(tower2.toArray(Integer.class)).mapToInt(i->i).toArray(),
+                Arrays.stream(tower3.toArray(Integer.class)).mapToInt(i->i).toArray()};
+    }
+
+
+    public void solve(){
+        displayer.display(this);
         transfer(tower1.getSize(), tower1, tower2, tower3);
+        isFinished = true;
     }
 
     private void transfer(int n, Stack<Integer> t1, Stack<Integer> t2, Stack<Integer> t3){
@@ -31,10 +49,21 @@ public class Hanoi {
             transfer(n-1, t1, t3, t2);
             int d = t1.pop();
             t3.push(d);
-            System.out.println("-- Turn: " + turn++);
-            System.out.println(this);
+            displayer.display(this);
             transfer(n-1, t2, t1, t3);
         }
+    }
+
+    public boolean finished(){
+        return isFinished;
+    }
+
+    public String display(){
+        return "-- Turn: " + turn++ + "\n" + this;
+    }
+
+    public int turn() {
+        return turn;
     }
 
     @Override
