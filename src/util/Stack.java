@@ -27,12 +27,13 @@ public class Stack<T> {
     @Override
     public String toString() {
         String result = "";
+
         if (root != null) {
-            result += "[ <" + root.getValue() + "> ";
-            Element<T> element = root;
-            while (element.getNext() != null) {
-                element = element.getNext();
-                result += "<" + element.getValue() + "> ";
+            result += "[ ";
+            Iterator<T> element = new Iterator<>(root);
+            T value;
+            while ((value = element.next()) != null) {
+                result += "<" + value + "> ";
             }
             result += "]";
         }else{
@@ -45,10 +46,9 @@ public class Stack<T> {
     public Object[] toArray() {
         Object[] array = new Object[size];
         if (root != null) {
-            Element<T> element = root;
+            Iterator<T> element = new Iterator<>(root);
             for (int i = 0; i < size; i++) {
-                array[i] = element.getValue();
-                element = element.getNext();
+                array[i] = element.next();
             }
         }
         return array;

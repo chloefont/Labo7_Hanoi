@@ -14,8 +14,10 @@ public class Iterator<T> {
     }
 
     public T next() {
-        T nextVal = root.getNext().getValue();
         root = root.getNext();
-        return nextVal;
+        if (root != null)
+            return root.getValue();
+        else
+            return null;
     }
 }
