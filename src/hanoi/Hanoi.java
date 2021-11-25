@@ -29,10 +29,21 @@ public class Hanoi {
         this(numberDisk, new HanoiDisplayer());
     }
 
-    public int[][] status(){
-        return new int[][]{Arrays.stream(tower1.toArray(Integer.class)).mapToInt(i->i).toArray(),
-                Arrays.stream(tower2.toArray(Integer.class)).mapToInt(i->i).toArray(),
-                Arrays.stream(tower3.toArray(Integer.class)).mapToInt(i->i).toArray()};
+    public int[][] status() {
+        Object[] t1 = tower1.toArray();
+        Object[] t2 = tower2.toArray();
+        Object[] t3 = tower3.toArray();
+
+        int[][] data = {new int[t1.length], new int[t2.length], new int[t3.length]};
+        Object[][] objects = new Object[][]{t1, t2, t3};
+
+        for(int i = 0; i < objects.length; i++){
+            for (int j = 0; j < objects[i].length; j++){
+                data[i][j] =  (int)objects[i][j];
+            }
+        }
+
+        return data;
     }
 
 

@@ -42,9 +42,8 @@ public class Stack<T> {
         return result;
     }
 
-    public T[] toArray(Class<T>dataType) {
-        // source: https://www.delftstack.com/fr/howto/java/generic-array-in-java/
-        T[] array = (T[]) Array.newInstance(dataType, size);;
+    public Object[] toArray() {
+        Object[] array = new Object[size];
         if (root != null) {
             Element<T> element = root;
             for (int i = 0; i < size; i++) {
