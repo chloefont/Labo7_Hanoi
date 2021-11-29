@@ -30,7 +30,7 @@ public class Stack<T> {
 
         if (root != null) {
             result += "[ ";
-            Iterator<T> element = new Iterator<>(root);
+            Iterator<T> element = getIterator();
             T value;
             while ((value = element.next()) != null) {
                 result += "<" + value + "> ";
@@ -46,7 +46,7 @@ public class Stack<T> {
     public Object[] toArray() {
         Object[] array = new Object[size];
         if (root != null) {
-            Iterator<T> element = new Iterator<>(root);
+            Iterator<T> element = getIterator();
             for (int i = 0; i < size; i++) {
                 array[i] = element.next();
             }
