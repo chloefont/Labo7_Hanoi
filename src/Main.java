@@ -4,6 +4,8 @@ import hanoi.gui.JHanoi;
 import util.Element;
 import util.Iterator;
 
+// TODO commenter les constructeurs !
+
 public class Main {
     public static void main(String[] args) {
         int arg = Integer.parseInt(args[0]);
