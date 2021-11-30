@@ -3,6 +3,9 @@ import util.*;
 
 import java.util.Arrays;
 
+/**
+ * Cette classe contient les différents test implémenter pour la Classe Hanoi, Stack et Iterator.
+ */
 public class Test {
     static private String passed(boolean isPassed) {
         if (isPassed)

@@ -2,9 +2,11 @@ package hanoi;
 
 import util.Stack;
 
-import java.util.Arrays;
-
 // source: https://www.sanfoundry.com/java-program-implement-solve-tower-of-hanoi-using-stacks/
+
+/**
+ * Cette classe permet de résoudre le problème des tours d'Hanoi et de suivre la résolution étape par étape.
+ */
 public class Hanoi {
     private final Stack<Integer>[] towers;
     private final HanoiDisplayer displayer;
