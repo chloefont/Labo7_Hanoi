@@ -39,15 +39,7 @@ public class Hanoi {
             }
         }
 
-        forEach(() -> {
-            System.out.println("coucou");
-        });
-
         return data;
-    }
-
-    private void forEach(ForEachCallback c){
-        c.callback();
     }
 
     public void solve(){
