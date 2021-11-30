@@ -46,7 +46,6 @@ public class Hanoi {
         return data;
     }
 
-
     public void solve(){
         if (displayer != null)
             displayer.display(this);
