@@ -29,11 +29,20 @@ public class Test {
         System.out.println("Pop return last value : " + passed(val == 2));
     }
 
+    static public void checkSize() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(3);
+        stack.push(4);
+
+        stack.pop();
+        System.out.println("Get size returns correct value : " + passed(stack.getSize() == 1));
+    }
+
     static public void toArrayOfVoidStack() {
         Stack<Integer> stack = new Stack<>();
         Object[] array = stack.toArray();
 
-        System.out.println("Array with void stack should be void : " + passed(array.length == 0));
+        System.out.println("Array with void stack should be void : " + passed(array.length == stack.getSize()));
     }
 
     static public void toArrayOfFullStack() {
@@ -41,8 +50,8 @@ public class Test {
 
         Integer[] firstArray = {2, 4, 5};
 
-        for (Integer i : firstArray)
-            stack.push(i);
+        for (int i = firstArray.length - 1; i >= 0; i--)
+            stack.push(firstArray[i]);
 
         Object[] array = stack.toArray();
 
@@ -96,6 +105,7 @@ public class Test {
     public static void main(String[] args) {
         popVoidStack();
         popReturnLastValue();
+        checkSize();
         toArrayOfVoidStack();
         toArrayOfFullStack();
         testIterators();
