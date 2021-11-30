@@ -6,26 +6,22 @@ import java.util.Arrays;
 
 // source: https://www.sanfoundry.com/java-program-implement-solve-tower-of-hanoi-using-stacks/
 public class Hanoi {
-    private final Stack<Integer> tower1;
-    private final Stack<Integer> tower2;
-    private final Stack<Integer> tower3;
+    private final Stack<Integer>[] towers;
     private final HanoiDisplayer displayer;
     private boolean isFinished = false;
 
     private int turn = 0;
 
     public Hanoi(int numberDisk, HanoiDisplayer displayer) throws Exception {
+        towers = new Stack[]{new Stack<>(), new Stack<>(), new Stack<>()};
         if (numberDisk <= 0) {
             throw new Exception("numberDisk should be greater than 0");
         }
 
-        tower1 = new Stack<>();
-        tower2 = new Stack<>();
-        tower3 = new Stack<>();
         this.displayer = displayer;
 
         for(int i = numberDisk; i > 0; i--){
-            tower1.push(i);
+            towers[0].push(i);
         }
     }
 
@@ -34,9 +30,9 @@ public class Hanoi {
     }
 
     public int[][] status() {
-        Object[] t1 = tower1.toArray();
-        Object[] t2 = tower2.toArray();
-        Object[] t3 = tower3.toArray();
+        Object[] t1 = towers[0].toArray();
+        Object[] t2 = towers[1].toArray();
+        Object[] t3 = towers[2].toArray();
 
         int[][] data = {new int[t1.length], new int[t2.length], new int[t3.length]};
         Object[][] objects = new Object[][]{t1, t2, t3};
@@ -54,7 +50,7 @@ public class Hanoi {
     public void solve(){
         if (displayer != null)
             displayer.display(this);
-        transfer(tower1.getSize(), tower1, tower2, tower3);
+        transfer(towers[0].getSize(), towers[0], towers[1], towers[2]);
         isFinished = true;
     }
 
@@ -85,8 +81,8 @@ public class Hanoi {
 
     @Override
     public String toString() {
-        return  "One:   " + tower1 + "\n" +
-                "Two:   " + tower2 + "\n" +
-                "Three: " + tower3;
+        return  "One:   " + towers[0] + "\n" +
+                "Two:   " + towers[1] + "\n" +
+                "Three: " + towers[2];
     }
 }
