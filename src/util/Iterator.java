@@ -3,7 +3,7 @@ package util;
 public class Iterator<T> {
     Element<T> root = null;
 
-    Iterator(Element<T> root) {
+    public Iterator(Element<T> root) {
         Element<T> e = new Element<T>(null);
         e.setNext(root);
         this.root = e;

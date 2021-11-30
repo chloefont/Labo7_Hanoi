@@ -79,11 +79,26 @@ public class Test {
 
     // Iterator
 
+    static public void testIterators(){
+        Element<String> el1 = new Element<>("el 1");
+        Element<String> el2 = new Element<>("el 2");
+        el1.setNext(el2);
+        Iterator<String> it = new Iterator<>(el1);
+
+        System.out.println("It - Should have next: " + passed(it.hasNext()));
+        System.out.println("It - Should equals 'el 1': " + passed(it.next().equals("el 1")));
+        System.out.println("It - Should have next: " + passed(it.hasNext()));
+        System.out.println("It - Should equals 'el 2': " + passed(it.next().equals("el 2")));
+        System.out.println("It - Should equals NULL: " + passed(it.next() == null));
+
+    }
+
     public static void main(String[] args) {
         popVoidStack();
         popReturnLastValue();
         toArrayOfVoidStack();
         toArrayOfFullStack();
+        testIterators();
 
         hanoiSolvesRight();
         hanoiWithNegativeNumberDisks();
