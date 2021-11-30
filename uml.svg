@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="39mm" y="40mm" width="1422mm" height="506mm" viewBox="39 40 1422 506">
+<style type="text/css"><![CDATA[
+text { font:12px Dialog; }
+]]></style>
+<line x1="1120" y1="170" x2="1290" y2="170" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="1270,178 1290,170 1270,162" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="270" y1="260" x2="420" y2="410" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="399,401 420,410 411,389" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="650" y1="130" x2="300" y2="130" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="650,130 637,137 624,130 637,123" style="fill:rgb(0,0,0);stroke:none" />
+<polygon points="650,130 637,137 624,130 637,123" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polyline points="320,122 300,130 320,138" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<rect x="1290" y="130" width="150" height="70" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1290" y="130" width="150" height="70" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1323" y="152" style="font:12px Ubuntu">HanoiDisplayer</text>
+<line x1="1290" y1="165" x2="1440" y2="165" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1290" y1="175" x2="1440" y2="175" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1298" y="190" style="font:12px Ubuntu">+ display (h : Hanoi) : vo...</text>
+<rect x="290" y="410" width="230" height="111" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="290" y="410" width="230" height="111" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="372" y="432" style="font:12px Ubuntu">Element&lt;T&gt;</text>
+<line x1="290" y1="445" x2="520" y2="445" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="298" y="460" style="font:12px Ubuntu">- value : T</text>
+<text x="298" y="474" style="font:12px Ubuntu">- next : Element&lt;T&gt;</text>
+<line x1="290" y1="483" x2="520" y2="483" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="298" y="498" style="font:12px Ubuntu">+ Element&lt;T&gt; (value : T)</text>
+<text x="298" y="512" style="font:12px Ubuntu">+ setNext (next : Element&lt;T&gt;) : void</text>
+<rect x="60" y="100" width="240" height="153" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="60" y="100" width="240" height="153" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="155" y="122" style="font:12px Ubuntu">Stack&lt;T&gt;</text>
+<line x1="60" y1="135" x2="300" y2="135" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="68" y="150" style="font:12px Ubuntu">- size : int</text>
+<line x1="60" y1="159" x2="300" y2="159" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="68" y="174" style="font:12px Ubuntu">+ Stack&lt;T&gt; ()</text>
+<text x="68" y="188" style="font:12px Ubuntu">+ push (object : T) : void</text>
+<text x="68" y="202" style="font:12px Ubuntu">+ pop () : T</text>
+<text x="68" y="216" style="font:12px Ubuntu">+ toString () : String</text>
+<text x="68" y="230" style="font:12px Ubuntu">+ toArray () : Object[]</text>
+<text x="68" y="244" style="font:12px Ubuntu">+ getIterator () : Iterator</text>
+<rect x="720" y="410" width="150" height="111" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="720" y="410" width="150" height="111" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="763" y="432" style="font:12px Ubuntu">Iterator&lt;T&gt;</text>
+<line x1="720" y1="445" x2="870" y2="445" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="728" y="460" style="font:12px Ubuntu">- root : Element&lt;T&gt;</text>
+<text x="728" y="474" style="font:12px Ubuntu">- index : int</text>
+<line x1="720" y1="483" x2="870" y2="483" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="728" y="498" style="font:12px Ubuntu">+ next () : T</text>
+<text x="728" y="512" style="font:12px Ubuntu">+ hasNext () : boolean</text>
+<rect x="650" y="80" width="470" height="209" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="650" y="80" width="470" height="209" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="869" y="102" style="font:12px Ubuntu">Hanoi</text>
+<line x1="650" y1="115" x2="1120" y2="115" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="658" y="130" style="font:12px Ubuntu">- isFinished : boolean</text>
+<text x="658" y="144" style="font:12px Ubuntu">- turn : int</text>
+<line x1="650" y1="153" x2="1120" y2="153" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="658" y="168" style="font:12px Ubuntu">+ Hanoi (numberDisk : int)</text>
+<text x="658" y="182" style="font:12px Ubuntu">+ Hanoi (numberDisk : int, displayer : HanoiDisplayer)</text>
+<text x="658" y="196" style="font:12px Ubuntu">+ solve () : void</text>
+<text x="658" y="210" style="font:12px Ubuntu">+ status () : int[][]</text>
+<text x="658" y="224" style="font:12px Ubuntu">- transfer (n : int, t1 : Stack&lt;Integer&gt;, t2 : Stack&lt;Integer&gt;, t3 : Stack&lt;Integer&gt;) ...</text>
+<text x="658" y="238" style="font:12px Ubuntu">+ finished () : boolean</text>
+<text x="658" y="252" style="font:12px Ubuntu">+ display () : String</text>
+<text x="658" y="266" style="font:12px Ubuntu">+ turn () : int</text>
+<text x="658" y="280" style="font:12px Ubuntu">+ toString () : String</text>
+<text x="1125" y="162" style="font:14px Ubuntu">*</text>
+<text x="1265" y="158" style="font:14px Ubuntu">1</text>
+<text x="1219" y="198" style="font:14px Ubuntu">-displayer</text>
+<text x="285" y="363" style="font:14px Ubuntu">possède &gt;</text>
+<text x="257" y="278" style="font:14px Ubuntu">1</text>
+<text x="421" y="399" style="font:14px Ubuntu">1</text>
+<text x="358" y="401" style="font:14px Ubuntu">-root</text>
+<text x="425" y="119" style="font:14px Ubuntu">&lt; est composé de</text>
+<text x="638" y="159" style="font:14px Ubuntu">1</text>
+<text x="309" y="119" style="font:14px Ubuntu">3</text>
+<text x="308" y="157" style="font:14px Ubuntu">-towers</text>
+<path d="M40,41 L40,71 L80,71 Q110,71 110,41 L40,41" style="fill:rgb(255,247,225);stroke:none" />
+<path d="M40,41 L40,71 L80,71 Q110,71 110,41 L40,41" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="45" y="63" style="font:16px Ubuntu">Labo7</text>
+<rect x="40" y="41" width="1419" height="503" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+</svg>
