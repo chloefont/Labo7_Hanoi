@@ -14,7 +14,11 @@ public class Hanoi {
 
     private int turn = 0;
 
-    public Hanoi(int numberDisk, HanoiDisplayer displayer){
+    public Hanoi(int numberDisk, HanoiDisplayer displayer) throws Exception {
+        if (numberDisk <= 0) {
+            throw new Exception("numberDisk should be greater than 0");
+        }
+
         tower1 = new Stack<>();
         tower2 = new Stack<>();
         tower3 = new Stack<>();
@@ -25,7 +29,7 @@ public class Hanoi {
         }
     }
 
-    public Hanoi(int numberDisk){
+    public Hanoi(int numberDisk) throws Exception{
         this(numberDisk, new HanoiDisplayer());
     }
 
@@ -48,7 +52,8 @@ public class Hanoi {
 
 
     public void solve(){
-        displayer.display(this);
+        if (displayer != null)
+            displayer.display(this);
         transfer(tower1.getSize(), tower1, tower2, tower3);
         isFinished = true;
     }
@@ -60,7 +65,8 @@ public class Hanoi {
             transfer(n-1, t1, t3, t2);
             int d = t1.pop();
             t3.push(d);
-            displayer.display(this);
+            if (displayer != null)
+                displayer.display(this);
             transfer(n-1, t2, t1, t3);
         }
     }

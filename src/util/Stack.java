@@ -1,5 +1,4 @@
 package util;
-
 import java.lang.reflect.Array;
 
 public class Stack<T> {
@@ -36,7 +35,7 @@ public class Stack<T> {
                 result += "<" + value + "> ";
             }
             result += "]";
-        }else{
+        } else {
             result = "[ ]";
         }
 
