@@ -2,27 +2,30 @@ package hanoi;
 
 import util.Stack;
 
-// source: https://www.sanfoundry.com/java-program-implement-solve-tower-of-hanoi-using-stacks/
-
 /**
  * Cette classe permet de résoudre le problème des tours d'Hanoi et de suivre la résolution étape par étape.
  */
 public class Hanoi {
-    final private int NB_TOWERS = 3;
+    static private final int NB_TOWERS = 3;
     private final Stack<Integer>[] towers = new Stack[NB_TOWERS];
     private final HanoiDisplayer displayer;
     private boolean isFinished = false;
 
     private int turn = 0;
 
-
+    /**
+     * Constructeur de la classe Hanoi.
+     * @param numberDisk nombre de disques à placer sur la première tour.
+     * @param displayer permettant de gérer l'affichage (si null, n'affiche rien).
+     * @throws IllegalArgumentException si numberDisk <= 0
+     */
     public Hanoi(int numberDisk, HanoiDisplayer displayer) throws IllegalArgumentException {
+        if (numberDisk <= 0) {
+            throw new IllegalArgumentException("NumberDisk should be greater than 0");
+        }
+
         for (int i = 0; i < NB_TOWERS; i++)
             towers[i] = new Stack<>();
-
-        if (numberDisk <= 0) {
-            throw new IllegalArgumentException("numberDisk should be greater than 0");
-        }
 
         this.displayer = displayer;
 
@@ -31,21 +34,27 @@ public class Hanoi {
         }
     }
 
-    public Hanoi(int numberDisk) throws Exception{
+    /**
+     * Constructeur de la classe Hanoi.
+     * @param numberDisk nombre de disques à placer sur la première tour.
+     * @throws IllegalArgumentException si numberDisk <= 0
+     */
+    public Hanoi(int numberDisk) throws IllegalArgumentException{
         this(numberDisk, new HanoiDisplayer());
     }
 
     /**
      * Permet d'avoir le contenu de chaque tour(stack) à un instant t.
-     * @return un tableau contenant
+     * @return un tableau contenant le contenu des tours.
      */
     public int[][] status() {
-        Object[] t1 = towers[0].toArray();
-        Object[] t2 = towers[1].toArray();
-        Object[] t3 = towers[2].toArray();
+        Object[][] objects = new Object[NB_TOWERS][];
+        int[][] data = new int[NB_TOWERS][];
 
-        int[][] data = {new int[t1.length], new int[t2.length], new int[t3.length]};
-        Object[][] objects = new Object[][]{t1, t2, t3};
+        for (int i = 0; i < NB_TOWERS; i++) {
+            objects[i] = towers[i].toArray();
+            data[i] = new int[towers[i].getSize()];
+        }
 
         for(int i = 0; i < objects.length; i++){
             for (int j = 0; j < objects[i].length; j++){

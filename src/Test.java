@@ -89,10 +89,28 @@ public class Test {
         boolean errorCatched = false;
         try {
             Hanoi hanoi = new Hanoi(-2);
-        } catch (Exception e) {
-            errorCatched = (e.getMessage().equals("numberDisk should be greater than 0"));
+        } catch (IllegalArgumentException e) {
+            errorCatched = true;
         } finally {
             System.out.println("Ha - Hanoi with negative number of disks raises exception : " + passed(errorCatched));
+        }
+    }
+
+    static public void statusHanoi() {
+        int[][] expectedResult = {{1, 2, 3}, {}, {}};
+        boolean testPassed = true;
+
+        try {
+            Hanoi hanoi = new Hanoi(3);
+            int[][] towers = hanoi.status();
+
+            for (int i = 0; i < expectedResult.length; i++)
+                testPassed = Arrays.equals(towers[i], expectedResult[i]);
+
+        } catch (IllegalArgumentException e) {
+            testPassed = false;
+        } finally {
+            System.out.println("Ha - Status should return corrects values : " + passed(testPassed));
         }
     }
 
@@ -147,6 +165,7 @@ public class Test {
 
         hanoiSolvesRight();
         hanoiWithNegativeNumberDisks();
+        statusHanoi();
         System.out.println();
 
         testIteratorsStack();

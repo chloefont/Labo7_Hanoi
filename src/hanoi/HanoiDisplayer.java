@@ -5,6 +5,10 @@ package hanoi;
  */
 public class HanoiDisplayer {
 
+    /**
+     * Affiche les étape de la résolution du Hanoi.
+     * @param h
+     */
     public void display(Hanoi h){
         System.out.println(h.display());
     }
