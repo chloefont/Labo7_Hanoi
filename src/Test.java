@@ -2,6 +2,7 @@ import hanoi.Hanoi;
 import util.*;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
 /**
  * Cette classe contient les différents test implémenter pour la Classe Hanoi, Stack et Iterator.
@@ -17,10 +18,16 @@ public class Test {
     // Stack
     static public void popVoidStack() {
         Stack<Integer> stack = new Stack<>();
-        Integer val = stack.pop();
+        boolean errorCatched = false;
 
-        System.out.println("Pop void stack should be null : " + passed(val == null));
-        System.out.println("If pop void stack, size should remain 0 : " + passed(stack.getSize() == 0));
+        try {
+            Integer val = stack.pop();
+        } catch (EmptyStackException e) {
+            errorCatched = true;
+        } finally {
+            System.out.println("St - Pop void stack should be null : " + passed(errorCatched));
+            System.out.println("St - If pop void stack, size should remain 0 : " + passed(stack.getSize() == 0));
+        }
     }
 
     static public void popReturnLastValue() {
@@ -29,7 +36,7 @@ public class Test {
         stack.push(2);
         Integer val = stack.pop();
 
-        System.out.println("Pop return last value : " + passed(val == 2));
+        System.out.println("St - Pop return last value : " + passed(val == 2));
     }
 
     static public void checkSize() {
@@ -38,14 +45,14 @@ public class Test {
         stack.push(4);
 
         stack.pop();
-        System.out.println("Get size returns correct value : " + passed(stack.getSize() == 1));
+        System.out.println("St - Get size returns correct value : " + passed(stack.getSize() == 1));
     }
 
     static public void toArrayOfVoidStack() {
         Stack<Integer> stack = new Stack<>();
         Object[] array = stack.toArray();
 
-        System.out.println("Array with void stack should be void : " + passed(array.length == stack.getSize()));
+        System.out.println("St - Array with void stack should be void : " + passed(array.length == stack.getSize()));
     }
 
     static public void toArrayOfFullStack() {
@@ -58,7 +65,7 @@ public class Test {
 
         Object[] array = stack.toArray();
 
-        System.out.println("Array with full stack : " + passed(Arrays.equals(firstArray, array)));
+        System.out.println("St - Array with full stack : " + passed(Arrays.equals(firstArray, array)));
     }
 
 
@@ -71,10 +78,10 @@ public class Test {
             errorCatched = (hanoi.toString().equals("One:   [ ]\n" +
                                                     "Two:   [ ]\n" +
                                                     "Three: [ <1> <2> <3> ]"));
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         } finally {
-            System.out.println("Hanoi solved right: " + passed(errorCatched));
+            System.out.println("Ha - Hanoi solved right: " + passed(errorCatched));
         }
     }
 
@@ -85,23 +92,48 @@ public class Test {
         } catch (Exception e) {
             errorCatched = (e.getMessage().equals("numberDisk should be greater than 0"));
         } finally {
-            System.out.println("Hanoi with negative number of disks raises exception : " + passed(errorCatched));
+            System.out.println("Ha - Hanoi with negative number of disks raises exception : " + passed(errorCatched));
         }
     }
 
-    // Iterator
+    // Iterator stack
 
-    static public void testIterators(){
-        Element<String> el1 = new Element<>("el 1");
-        Element<String> el2 = new Element<>("el 2");
-        el1.setNext(el2);
-        Iterator<String> it = new Iterator<>(el1);
+    static public void testIteratorsStack(){
+        boolean testOK = false;
+        Stack<String> stack = new Stack<>();
 
-        System.out.println("It - Should have next: " + passed(it.hasNext()));
-        System.out.println("It - Should equals 'el 1': " + passed(it.next().equals("el 1")));
-        System.out.println("It - Should have next: " + passed(it.hasNext()));
-        System.out.println("It - Should equals 'el 2': " + passed(it.next().equals("el 2")));
-        System.out.println("It - Should equals NULL: " + passed(it.next() == null));
+        stack.push("el 2");
+        stack.push("el 1");
+        Iterator<String> it = stack.getIterator();
+
+        System.out.println("It - Should have next : " + passed(it.hasNext()));
+
+        try {
+            testOK = it.next().equals("el 1");
+        } catch (Exception e) {
+        } finally {
+            System.out.println("It - Should equals 'el 1' : " + passed(testOK));
+            testOK = false;
+        }
+
+        System.out.println("It - Should have next : " + passed(it.hasNext()));
+
+        try {
+            testOK = it.next().equals("el 2");
+        } catch (Exception e) {
+        } finally {
+            System.out.println("It - Should equals 'el 2' : " + passed(testOK));
+            testOK = false;
+        }
+
+        try {
+            it.next();
+        } catch (Exception e) {
+            testOK = true;
+        } finally {
+            System.out.println("It - Next should raise an exception : " + passed(testOK));
+        }
+
 
     }
 
@@ -111,9 +143,12 @@ public class Test {
         checkSize();
         toArrayOfVoidStack();
         toArrayOfFullStack();
-        testIterators();
+        System.out.println();
 
         hanoiSolvesRight();
         hanoiWithNegativeNumberDisks();
+        System.out.println();
+
+        testIteratorsStack();
     }
 }

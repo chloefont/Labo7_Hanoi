@@ -4,11 +4,11 @@ package util;
  * Un élément est contenu par la Stack.
  * @param <T> Le type qu'un élément contient.
  */
-public class Element<T>{
+class Element<T>{
     private T value;
     private Element<T> next;
 
-    public Element(T value) {
+    Element(T value) {
         this.value = value;
     }
 
@@ -16,7 +16,7 @@ public class Element<T>{
      * Permet de récupérer l'élément suivant celui-ci.
      * @return
      */
-    public Element<T> getNext() {
+    Element<T> getNext() {
         return next;
     }
 
@@ -24,7 +24,7 @@ public class Element<T>{
      * Permet de récupérer la valeur contenue.
      * @return
      */
-    public T getValue() {
+    T getValue() {
         return value;
     }
 
@@ -32,7 +32,7 @@ public class Element<T>{
      * Permet d'indiquer l'élément qui celui-ci.
      * @param next
      */
-    public void setNext(Element<T> next) {
+    void setNext(Element<T> next) {
         this.next = next;
     }
 }

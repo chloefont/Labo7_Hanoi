@@ -8,16 +8,20 @@ import util.Stack;
  * Cette classe permet de résoudre le problème des tours d'Hanoi et de suivre la résolution étape par étape.
  */
 public class Hanoi {
-    private final Stack<Integer>[] towers;
+    final private int NB_TOWERS = 3;
+    private final Stack<Integer>[] towers = new Stack[NB_TOWERS];
     private final HanoiDisplayer displayer;
     private boolean isFinished = false;
 
     private int turn = 0;
 
-    public Hanoi(int numberDisk, HanoiDisplayer displayer) throws Exception {
-        towers = new Stack[]{new Stack<>(), new Stack<>(), new Stack<>()};
+
+    public Hanoi(int numberDisk, HanoiDisplayer displayer) throws IllegalArgumentException {
+        for (int i = 0; i < NB_TOWERS; i++)
+            towers[i] = new Stack<>();
+
         if (numberDisk <= 0) {
-            throw new Exception("numberDisk should be greater than 0");
+            throw new IllegalArgumentException("numberDisk should be greater than 0");
         }
 
         this.displayer = displayer;
