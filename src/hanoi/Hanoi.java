@@ -31,6 +31,10 @@ public class Hanoi {
         this(numberDisk, new HanoiDisplayer());
     }
 
+    /**
+     * Permet d'avoir le contenu de chaque tour(stack) à un instant t.
+     * @return un tableau contenant
+     */
     public int[][] status() {
         Object[] t1 = towers[0].toArray();
         Object[] t2 = towers[1].toArray();
@@ -48,6 +52,9 @@ public class Hanoi {
         return data;
     }
 
+    /**
+     * Permet de lancer la résolution. Cette méthode appel à chaque étape HanoiDisplayer.display.
+     */
     public void solve(){
         if (displayer != null)
             displayer.display(this);
@@ -55,6 +62,13 @@ public class Hanoi {
         isFinished = true;
     }
 
+    /**
+     * L'algorithme utilisé pour la résolution de Hanoi.
+     * @param n
+     * @param t1
+     * @param t2
+     * @param t3
+     */
     private void transfer(int n, Stack<Integer> t1, Stack<Integer> t2, Stack<Integer> t3){
 
         if (n > 0)
@@ -72,10 +86,18 @@ public class Hanoi {
         return isFinished;
     }
 
+    /**
+     * Permet de récupérer le tour actuel au format String.
+     * @return le tour.
+     */
     public String display(){
         return "-- Turn: " + turn++ + "\n" + this;
     }
 
+    /**
+     * Getter du nombre de tour.
+     * @return le nombre de tour.
+     */
     public int turn() {
         return turn;
     }
