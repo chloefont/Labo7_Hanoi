@@ -8,29 +8,29 @@ class Element<T>{
     private T value;
     private Element<T> next;
 
+    /**
+     * Constructeur de la classe Element.
+     * @param value valeur de 'élément.
+     */
     Element(T value) {
         this.value = value;
     }
 
     /**
      * Permet de récupérer l'élément suivant celui-ci.
-     * @return
+     * @return l'élément suivant.
      */
     Element<T> getNext() {
         return next;
     }
 
-    /**
-     * Permet de récupérer la valeur contenue.
-     * @return
-     */
     T getValue() {
         return value;
     }
 
     /**
-     * Permet d'indiquer l'élément qui celui-ci.
-     * @param next
+     * Permet de renseigner l'élément qui suit celui-ci.
+     * @param next l'élément à mettre à la suite.
      */
     void setNext(Element<T> next) {
         this.next = next;

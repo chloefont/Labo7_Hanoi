@@ -77,18 +77,16 @@ public class Hanoi {
 
     /**
      * L'algorithme utilisé pour la résolution de Hanoi.
-     * @param n
-     * @param t1
-     * @param t2
-     * @param t3
+     * @param n nombre de disques du Hanoi.
+     * @param t1 tour 1.
+     * @param t2 tour 2.
+     * @param t3 tour 3.
      */
     private void transfer(int n, Stack<Integer> t1, Stack<Integer> t2, Stack<Integer> t3){
-
-        if (n > 0)
-        {
+        if (n > 0) {
             transfer(n-1, t1, t3, t2);
-            int d = t1.pop();
-            t3.push(d);
+            int disque = t1.pop();
+            t3.push(disque);
             if (displayer != null)
                 displayer.display(this);
             transfer(n-1, t2, t1, t3);

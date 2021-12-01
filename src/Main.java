@@ -1,8 +1,6 @@
 import hanoi.Hanoi;
 import hanoi.gui.JHanoi;
 
-// TODO commenter les constructeurs !
-
 public class Main {
     public static void main(String[] args) {
         int arg = Integer.parseInt(args[0]);

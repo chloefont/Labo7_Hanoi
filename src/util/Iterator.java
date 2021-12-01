@@ -7,6 +7,11 @@ package util;
 public class Iterator<T> {
     Element<T> root;
 
+    /**
+     * Constructeur de la classe Iterator.
+     * @param root élément que l'itérateur doit référencer. L'itérateur pointe en réalité sur un élément précédent ce
+     *             dernier. Le premier élément est ainsi accessible grâce à la méthode next().
+     */
     Iterator(Element<T> root) {
         Element<T> e = new Element<T>(null);
         e.setNext(root);
