@@ -44,9 +44,10 @@ public class Stack<T> {
 
         if (root != null) {
             result += "[ ";
-            Iterator<T> element = getIterator();
+            Iterator<T> it = getIterator();
             T value;
-            while ((value = element.next()) != null) {
+            while (it.hasNext()) {
+                value = it.next();
                 result += "<" + value + "> ";
             }
             result += "]";
