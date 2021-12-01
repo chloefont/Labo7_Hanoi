@@ -44,10 +44,13 @@ La classe Iterator implémente un itérateur utilisé par la classe Stack. Elle 
 La classe HanoiDisplayer implémente le comportement de l'affichage de la résolution des tours de Hanoi. Elle ne propose qu'une seule fonction "display" qui affiche sur la console les différentes étapes de la résolution du problème.
 
 ## Description de l'algorithme
-En ce qui concerne l'algorithme choisi pour la résolution des tours de Hanoi, nous nous sommes inspirés du chapitre
+En ce qui concerne l'algorithme choisi pour la résolution des tours de Hanoi, nous nous sommes inspirés du chapitre "Récursivité" du cour Algorithme et Structure de données (2ème semestre).
 
 ## Réponse à la question
 En supposant des moines surentraînés capables de déplacer un disque à la seconde, combien de temps
 reste-t-il avant que l’univers disparaisse (celui-ci a actuellement 13.8 milliards d’années) ?
 
+2^64 - 1 -13.8 millards d'années
+
 ## Sources
+Chapitre "2.1 Récursivité" - slide 39

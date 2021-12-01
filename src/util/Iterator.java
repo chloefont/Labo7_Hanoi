@@ -5,9 +5,9 @@ package util;
  * @param <T> Le type qu'un iterator contient
  */
 public class Iterator<T> {
-    Element<T> root = null;
+    Element<T> root;
 
-    public Iterator(Element<T> root) {
+    Iterator(Element<T> root) {
         Element<T> e = new Element<T>(null);
         e.setNext(root);
         this.root = e;
@@ -25,11 +25,11 @@ public class Iterator<T> {
      * Permet de récupérer le contenu de l'élément qui suit celui-ci.
      * @return Un objet type T ou null si aucun élément n'est présent.
      */
-    public T next() {
+    public T next() throws Exception {
         root = root.getNext();
         if (root != null)
             return root.getValue();
         else
-            return null;
+            throw new Exception("Tried to access to a null pointer.");
     }
 }

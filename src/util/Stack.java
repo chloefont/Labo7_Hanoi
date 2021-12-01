@@ -1,5 +1,7 @@
 package util;
 
+import java.util.EmptyStackException;
+
 /**
  * Une pile LIFO (Last In First Out).
  * @param <T> est le type des éléments qu'il contient.
@@ -23,12 +25,14 @@ public class Stack<T> {
      * Permet de retirer le dernier élément ajouté.
      * @return l'élément ajouté en dernier ou null si la pile est vide.
      */
-    public T pop() {
-        T val = null;
+    public T pop() throws EmptyStackException {
+        T val;
         if(root != null){
             val = root.getValue();
             root = root.getNext();
             size--;
+        } else {
+            throw new EmptyStackException();
         }
 
         return val;
@@ -42,17 +46,22 @@ public class Stack<T> {
     public String toString() {
         String result = "";
 
-        if (root != null) {
-            result += "[ ";
-            Iterator<T> it = getIterator();
-            T value;
-            while (it.hasNext()) {
-                value = it.next();
-                result += "<" + value + "> ";
+        try {
+            if (root != null) {
+                result += "[ ";
+                Iterator<T> it = getIterator();
+                T value;
+                while (it.hasNext()) {
+                    value = it.next();
+                    result += "<" + value + "> ";
+                }
+                result += "]";
+            } else {
+                result = "[ ]";
             }
-            result += "]";
-        } else {
-            result = "[ ]";
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
         return result;
@@ -64,12 +73,19 @@ public class Stack<T> {
      */
     public Object[] toArray() {
         Object[] array = new Object[size];
-        if (root != null) {
-            Iterator<T> element = getIterator();
-            for (int i = 0; i < size; i++) {
-                array[i] = element.next();
+
+        try {
+
+            if (root != null) {
+                Iterator<T> element = getIterator();
+                for (int i = 0; i < size; i++) {
+                    array[i] = element.next();
+                }
             }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
         return array;
     }
 
